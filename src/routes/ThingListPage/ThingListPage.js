@@ -17,6 +17,7 @@ export default class ThingListPage extends Component {
 
   renderThings() {
     const { thingList = [] } = this.context
+    console.log('yellow unicorn', thingList)
     return thingList.map(thing =>
       <ThingListItem
         key={thing.id}
