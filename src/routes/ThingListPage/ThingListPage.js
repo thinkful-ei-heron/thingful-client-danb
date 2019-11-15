@@ -4,6 +4,7 @@ import ThingApiService from '../../services/thing-api-service'
 import { Section } from '../../components/Utils/Utils'
 import ThingListItem from '../../components/ThingListItem/ThingListItem'
 import './ThingListPage.css'
+import TokenService from '../../services/token-service'
 
 export default class ThingListPage extends Component {
   static contextType = ThingListContext
@@ -18,12 +19,15 @@ export default class ThingListPage extends Component {
   renderThings() {
     const { thingList = [] } = this.context
     console.log('yellow unicorn', thingList)
-    return thingList.map(thing =>
-      <ThingListItem
-        key={thing.id}
-        thing={thing}
-      />
+      return thingList.map(thing =>
+        <ThingListItem
+          key={thing.id}
+          thing={thing}
+        />
     )
+    if(TokenService.hasAuthToken()) {
+
+    }
   }
 
   render() {
